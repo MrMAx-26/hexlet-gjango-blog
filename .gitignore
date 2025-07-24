@@ -6,3 +6,4 @@ demo.cast
 coverage.xml
 venv/
 .env
+db.sqlite3
