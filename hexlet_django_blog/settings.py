@@ -36,15 +36,45 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = os.getenv("INSTALLED_APPS")
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'hexlet_django_blog',
+    'hexlet_django_blog.article',
+]
 
-MIDDLEWARE = os.getenv("MIDDLEWARE")
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
 
-ROOT_URLCONF = os.getenv("ROOT_URLCONF")
+ROOT_URLCONF = 'hexlet_django_blog.urls'
 
-TEMPLATES = os.getenv("TEMPLATES")
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],  
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
-WSGI_APPLICATION = os.getenv("WSGI_APPLICATION")
+WSGI_APPLICATION = 'hexlet_django_blog.wsgi.application'
 
 
 # Database
@@ -61,7 +91,20 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = os.getenv("AUTH_PASSWORD_VALIDATORS")
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
 
 
 # Internationalization
@@ -84,4 +127,4 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = os.getenv("DEFAULT_AUTO_FIELD")
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
