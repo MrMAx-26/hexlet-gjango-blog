@@ -12,7 +12,7 @@ class IndexView(View):
         articles = Article.objects.all()[:15]
         return render(
             request,
-            "articles/indexx.html",
+            "articles/index.html",
             context={
                 "articles": articles,
             },

@@ -4,11 +4,7 @@ from django.urls import reverse
 
 
 class HomePageView(TemplateView):
-    template_name = 'base.html'
-
-
-    def home(request):
-        return render(request, "base.html")
+    template_name = "base.html"
     
 
 def about(request):
