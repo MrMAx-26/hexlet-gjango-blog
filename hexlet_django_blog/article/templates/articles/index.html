@@ -5,4 +5,13 @@
     {% for article in articles %}
         <h2><a href="{% url 'article_detail' article.id %}">{{ article.name }}</a></h2>
     {% endfor %}
+
+    <form action="{% url 'articles_create' %}" method="post">
+    {% csrf_token %}
+    <table border="1">
+    {{ form }}
+    </table>
+    <input type="submit" value="Создать">
+</form>
 {% endblock %}
+

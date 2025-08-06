@@ -1,4 +1,6 @@
 from django.db import models
+from django.forms import ModelForm
+
 
 # Create your models here.
 class Article(models.Model):
@@ -9,3 +11,9 @@ class Article(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class ArticleForm(ModelForm):
+    class Meta:
+        model = Article
+        fields = ["name", "body"]
